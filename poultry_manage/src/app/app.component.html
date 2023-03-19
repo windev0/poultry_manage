@@ -9,11 +9,14 @@
 </head>
 
 <body >
+  <router-outlet>
+
+  </router-outlet>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="#">PoultryTracker</a>
       <div class="navbar-nav ms-auto">
-        <button class="btn btn-outline-success me-2">Se connecter</button>
+        <button class="btn btn-outline-success me-2" routerLink="/login">Se connecter</button>
         <button class="btn btn-outline-danger">Se déconnecter</button>
       </div>
     </div>
@@ -52,7 +55,7 @@
           </div>
         </mat-nav-list>
       </mat-sidenav>
-      <div class="main-content ">
+      <div class="main-content" style="height: 400px;">
         <carousel [interval]="3000" [showIndicators]="true">
           <slide>
             <img src="../assets/images/carousel-img1.jpg" alt="image 1" class="d-block mx-auto" style="height: 400px;">

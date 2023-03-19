@@ -1,1 +1,36 @@
-<p>login works</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.component.css">
+    <title>Connexion</title>
+</head>
+
+<body class="bg-dark ">
+    <div class="container  d-flex align-items-center justify-content-center" style="height: 100vh;">
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="passwordProblems">
+                <a href="#">password forgotten ?.</a> 
+                <a href="#">create an account ?</a>
+                
+            </div>
+            <button type="submit" class="btn btn-primary">log in</button>
+        
+        </form>
+    </div>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
