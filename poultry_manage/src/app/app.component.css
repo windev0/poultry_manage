@@ -1,0 +1,32 @@
+.mat-sidenav {
+    height: 100vh;
+    width: 200px;
+    /* ou la largeur souhaitée */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.mat-sidenav-container {
+    height: 100vh;
+
+}
+
+.mat-sidenav-content {
+    padding: 24px;
+}
+
+button.mat-icon-button {
+    border: none;
+}
+
+.butn-connexion {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.lien{
+    color: aqua;
+    font-size: 15px;
+}

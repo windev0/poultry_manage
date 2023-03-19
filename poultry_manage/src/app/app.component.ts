@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'poultry_manage';
+  showSidebar = true;
+  
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
+  }
+  
+ 
 }
