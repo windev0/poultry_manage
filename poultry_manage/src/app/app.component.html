@@ -22,8 +22,8 @@
     </div>
   </nav>
 
-  <mat-toolbar color="primary">
-    <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
+  <mat-toolbar style="background-color: #1709d2;">
+    <mat-icon class="menu" (click)="sidenav.toggle()" >menu</mat-icon>
     <div class="lien-baroutil">
       <a mat-button href="#">Nous contacter</a>
       <a mat-button href="#">Autres</a>
@@ -34,8 +34,8 @@
   
 
   <div class="sidebar-container" (click)="sidenav.close()" class="sidebar" [class.hidden]="!showSidebar">
-    <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #sidenav mode="over" [fixedInViewport]="true">
+    <mat-sidenav-container class="sidenav-container" style="background-color: #000000">
+      <mat-sidenav #sidenav mode="over" [fixedInViewport]="true" style="background-color: #1709d2;">
 
 
         <mat-nav-list>
@@ -46,7 +46,7 @@
             </button>
           </div>
           <div class="container mt-5">
-            <a mat-list-item href="#"><span class="lien">Accueil</span> </a>
+            <a mat-list-item routerLink="/accueil"><span class="lien">Accueil</span> </a>
             <a mat-list-item routerLink="/poule"><span class="lien">Gestion des poules</span> </a>
             <a mat-list-item routerLink="/oeuf"><span class="lien">Gestion des oeufs</span> </a>
             <a mat-list-item routerLink="/vente"><span class="lien">Gestion des ventes</span> </a>
@@ -71,8 +71,5 @@
     </mat-sidenav-container>
   </div>
 
-
-
 </body>
-
 </html>

@@ -33,8 +33,9 @@ button.mat-icon-button {
 }
 
 .lien {
-    color: aqua;
+    color: white;
     font-size: 15px;
+    font-weight: 500;
 }
 
 body {

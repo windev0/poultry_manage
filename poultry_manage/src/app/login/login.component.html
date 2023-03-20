@@ -19,8 +19,9 @@
         </div>
       </nav>
     
-      <mat-toolbar color="primary">
-        <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
+      <mat-toolbar style="background-color: #1709d2;;">
+        <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
+        <a mat-button routerLink="/accueil" style="color:white; font-size: medium;">Accueil</a>
         <div class="lien-baroutil">
           <a mat-button href="#">Nous contacter</a>
           <a mat-button href="#">Autres</a>
@@ -48,20 +49,19 @@
           <div class="container  d-flex align-items-center justify-content-center" style="height: 80vh;">
             <form action="" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <label for="username" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="username"  max="10" required>
+                    <div id="emailHelp" class="form-text">Votre identifiant est privé et ne sera pas diffusé.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="Password1" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="Password1">
                 </div>
                 <div class="passwordProblems">
-                    <a href="#">password forgotten ?.</a> 
-                    <a href="#">create an account ?</a>
-                    
+                    <a href="#">mot de passe oublié ?.</a> 
+                    <a href="#">créer un compte ?</a>
                 </div>
-                <button type="submit" class="btn btn-primary text-center" routerLink="/accueil">Connexion</button>
+                <button type="submit" class="btn btn-success text-center" routerLink="/accueil">Connexion</button>
             
             </form>
         </div>
