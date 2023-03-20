@@ -1,1 +1,92 @@
-<p>poule works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des poules</title>
+    <link rel="stylesheet" href="poule.component.css">
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">PoultryTracker</a>
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-danger">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <mat-toolbar style="background-color: #1709d2;;">
+        <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
+        <a mat-button routerLink="/accueil" style="color:white; font-size: medium;">Accueil</a>
+        <div class="lien-baroutil">
+            <a mat-button href="#">Nous contacter</a>
+            <a mat-button href="#">Autres</a>
+        </div>
+
+    </mat-toolbar>
+    <main>
+        <table class="table table-bordered table-striped table-light table-hover">
+            <thead class="table-dark ">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Race</th>
+                    <th scope="col">Sexe</th>
+                    <th scope="col">Poids</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>M</td>
+                    <td>Moyen</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>M</td>
+                    <td>Moyen</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>M</td>
+                    <td>Moyen</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>M</td>
+                    <td>Moyen</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>F</td>
+                    <td>Moyen</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>22/12/2021</td>
+                    <td>Nègre</td>
+                    <td>M</td>
+                    <td>Moyen</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-success position--3">+ AJOUTER</button>
+    </main>
+</body>
+
+</html>
