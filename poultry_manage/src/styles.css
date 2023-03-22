@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "";
+
 html, body { height: 100%; }
 body { margin: 0; }
 .mat-sidenav {
     height: 100vh;
-    width: 200px;
+    width: 240px;
     /* ou la largeur souhaitée */
     position: fixed;
     top: 0;
@@ -38,9 +38,7 @@ button.mat-icon-button {
     font-weight: 500;
 }
 
-body {
-    overflow: hidden;
-}
+
 .lien-baroutil{
     position: fixed;
     right: 40px;

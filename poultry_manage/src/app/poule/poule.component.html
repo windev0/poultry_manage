@@ -19,73 +19,76 @@
         </div>
     </nav>
 
-    <mat-toolbar style="background-color: #1709d2;;">
+    <mat-toolbar style="background-color: #1709d2; width:100%">
         <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
-        <a mat-button routerLink="/accueil" style="color:white; font-size: medium;">Accueil</a>
-        <div class="lien-baroutil">
-            <a mat-button href="#">Nous contacter</a>
-            <a mat-button href="#">Autres</a>
-        </div>
+        <nav class="nav">
+            <a class="nav-link active" routerLink="/accueil" style="color:white; font-size: medium;">
+                <i class="bi bi-house-door"></i> Accueil
+            </a>
 
+        </nav>
     </mat-toolbar>
-    <main>
-        <table class="table table-bordered table-striped table-light table-hover">
+    <main class="m-2">
+        <ng-template #errors>
+            <div class="text-danger">{{errorMessage}}</div>
+        </ng-template>
+        <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchPoule()">
+            <div class="input-group">
+                <label class="input-group-text">Taper ici</label>
+                <input type="text" name="" id="" class="form-control" placeholder="saisir un mot clé..."
+                    formControlName="motCle">
+                <button class="btn btn-info"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+        <p></p>
+        <table class="table table-bordered table-striped table-light table-hover text-center table-responsive">
             <thead class="table-dark ">
-                <tr>
+                <tr class="table-secondary ">
                     <th scope="col">Id</th>
                     <th scope="col">Date</th>
                     <th scope="col">Race</th>
                     <th scope="col">Sexe</th>
                     <th scope="col">Poids</th>
+                    <th scope="col">En vente</th>
+                    <th scope="col"></th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>M</td>
-                    <td>Moyen</td>
+            <tbody *ngIf="poules; else errors">
+                <tr *ngFor='let p of poules' class="table-dark">
+                    <th scope="row"> {{p.id}} </th>
+                    <td> {{p.date}} </td>
+                    <td> {{p.race}} </td>
+                    <td> {{p.sexe}} </td>
+                    <td> {{p.poids}} </td>
+                    <td> <i class="bi bi-check-circle text-success" *ngIf="p.poids == 'grande'"></i></td>
+                    <td>
+                        <button (click)="handleSetEnVendre(p)"
+                            [ngClass]="p.poids == 'grande'? 'btn-danger': 'btn-success'" class="btn">
+                            <span *ngIf="p.poids == 'grande'">sup. vendre</span>
+                            <span *ngIf="p.poids != 'grande'">met. vendre</span>
+                        </button>
+                    </td>
+                    <td><button class="btn btn-warning"><i class="bi bi-pencil bi-white"></i></button></td>
+                    <td><button class="btn btn-danger" (click)="handleDeletePoule(p)"><i
+                                class="fas fa-trash-alt"></i></button></td>
+                </tr>
 
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>M</td>
-                    <td>Moyen</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>M</td>
-                    <td>Moyen</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>M</td>
-                    <td>Moyen</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>F</td>
-                    <td>Moyen</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>22/12/2021</td>
-                    <td>Nègre</td>
-                    <td>M</td>
-                    <td>Moyen</td>
-                </tr>
             </tbody>
         </table>
-        <button class="btn btn-success position--3">+ AJOUTER</button>
+        <ul class="nav nav-pills">
+            <li *ngFor="let item of [].constructor(this.totalPages); let i = index">
+                <a (click)="goToPage(i)" [ngClass]="i == currentPage?'btn-info':'btn-outline-info'" class="btn  ms-1 mt-1">{{i}}</a>
+            </li>
+        </ul>
+
+
+        <div class="mt-3">
+            <div class="container">
+                <button class="btn btn-success">+ AJOUTER</button>
+            </div>
+        </div>
     </main>
 </body>
 

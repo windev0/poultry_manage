@@ -20,6 +20,7 @@ import { RapportComponent } from './rapport/rapport.component';
 import { AjouterPouleComponent } from './ajouter-poule/ajouter-poule.component';
 import { AjouterVenteComponent } from './ajouter-vente/ajouter-vente.component';
 import { AjouterOeufComponent } from './ajouter-oeuf/ajouter-oeuf.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AjouterOeufComponent } from './ajouter-oeuf/ajouter-oeuf.component';
     MatIconModule,
     MatListModule,
     MatToolbarModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
