@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { Poule } from '../models/poule.model';
 import { PouleService } from '../services/poule.service';
@@ -26,7 +27,7 @@ export class PouleComponent implements OnInit {
   pageSize: number = 4;
   totalPages: number = 0;
 
-  constructor(private pouleService: PouleService, private fb: FormBuilder) { };
+  constructor(private pouleService: PouleService, private fb: FormBuilder, private router: Router) { };
 
   ngOnInit(): void {
 
@@ -110,5 +111,9 @@ export class PouleComponent implements OnInit {
   public goToPage(i: number) {
     this.currentPage = i;
     this.handlePagesPoules();
+  }
+
+  public handleNewPoule() {
+    this.router.navigateByUrl('ajouterPoule');
   }
 }
