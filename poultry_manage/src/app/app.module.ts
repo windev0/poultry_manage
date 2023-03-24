@@ -22,6 +22,7 @@ import { AjouterOeufComponent } from './ajouter-oeuf/ajouter-oeuf.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
 import { EditPouleComponent } from './edit-poule/edit-poule.component';
+import { EditOeufComponent } from './edit-oeuf/edit-oeuf.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditPouleComponent } from './edit-poule/edit-poule.component';
     AjouterVenteComponent,
     AjouterOeufComponent,
     NouvPouleComponent,
-    EditPouleComponent
+    EditPouleComponent,
+    EditOeufComponent
   ],
   imports: [
     BrowserModule,
