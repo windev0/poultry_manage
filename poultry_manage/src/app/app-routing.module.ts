@@ -1,12 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { EditPouleComponent } from './edit-poule/edit-poule.component';
 import { LoginComponent } from './login/login.component';
 import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
 import { OeufComponent } from './oeuf/oeuf.component';
 import { PouleComponent } from './poule/poule.component';
 import { RapportComponent } from './rapport/rapport.component';
 import { VenteComponent } from './vente/vente.component';
+
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: "oeuf", component: OeufComponent },
   { path: "vente", component: VenteComponent },
   { path: "rapport", component: RapportComponent },
-  { path: "ajouterPoule", component: NouvPouleComponent }
+  { path: "ajouterPoule", component: NouvPouleComponent },
+  { path: "editPoule/:id", component: EditPouleComponent }
+
 ];
 
 @NgModule({

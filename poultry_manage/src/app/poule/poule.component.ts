@@ -24,7 +24,7 @@ export class PouleComponent implements OnInit {
   errorMessage!: String;
   searchFormGroup!: FormGroup;
   currentPage: number = 0;
-  pageSize: number = 4;
+  pageSize: number = 6;
   totalPages: number = 0;
 
   constructor(private pouleService: PouleService, private fb: FormBuilder, private router: Router) { };
@@ -115,5 +115,9 @@ export class PouleComponent implements OnInit {
 
   public handleNewPoule() {
     this.router.navigateByUrl('ajouterPoule');
+  }
+
+  public handleEditPoule(p: Poule){
+    this.router.navigateByUrl('editPoule/'+p.id);
   }
 }

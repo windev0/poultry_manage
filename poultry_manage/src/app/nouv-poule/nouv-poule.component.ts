@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { PouleService } from '../services/poule.service';
 
 @Component({
   selector: 'app-nouv-poule',
@@ -10,7 +11,7 @@ export class NouvPouleComponent implements OnInit {
 
   pouleFormGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public pouleService: PouleService) { }
 
   ngOnInit(): void {
     this.pouleFormGroup = this.fb.group({
@@ -21,7 +22,17 @@ export class NouvPouleComponent implements OnInit {
     });
   }
 
-  handleAddSubmit(){
-console.log(this.pouleFormGroup.value)
+  handleAddSubmit() {
+    // console.log(this.pouleFormGroup.value)
+    this.pouleService.addNewPoule(this.pouleFormGroup.value).subscribe({
+      next: (value) => {
+        alert('Poule ajouté avec succès !')
+        this.pouleFormGroup.reset()
+      }, error: (err) => {
+        console.log(err)
+      }
+    })
   }
+
+ 
 }

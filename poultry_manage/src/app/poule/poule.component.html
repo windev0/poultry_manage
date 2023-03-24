@@ -70,7 +70,7 @@
                             <span *ngIf="p.poids != 'grande'">met. vendre</span>
                         </button>
                     </td>
-                    <td><button class="btn btn-warning"><i class="bi bi-pencil bi-white"></i></button></td>
+                    <td><button class="btn btn-warning " (click)="handleEditPoule(p)"><i class="bi bi-pencil bi-white"></i></button></td>
                     <td><button class="btn btn-danger" (click)="handleDeletePoule(p)"><i
                                 class="fas fa-trash-alt"></i></button></td>
                 </tr>

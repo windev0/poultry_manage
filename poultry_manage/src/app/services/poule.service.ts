@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ValidationErrors } from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
 import { PagePoule, Poule } from '../models/poule.model';
 enum Poids {
@@ -18,7 +19,7 @@ export class PouleService {
 
   constructor() {
     this.poules = [
-     
+
       { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite },
       { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande },
       { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande },
@@ -30,6 +31,11 @@ export class PouleService {
       { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
       { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
       { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
       { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
       { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
       { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
@@ -48,7 +54,7 @@ export class PouleService {
   public getPagePoules(page: number, size: number): Observable<PagePoule> {
 
     let index = page * size;
-    let totalPages = ~~this.poules.length / size;
+    let totalPages = ~~(this.poules.length / size);
 
     if (this.poules.length % size != 0) {
       totalPages++;
@@ -67,7 +73,6 @@ export class PouleService {
 
     if (poule != undefined) {
       poule.poids = Poids.grande;
-
       return of(true)
     } else {
       return throwError(() => new Error("Poule non trouvée"))
@@ -77,5 +82,35 @@ export class PouleService {
   public searchPoule(motCle: string): Observable<Poule[]> {
     let poulesTrouvees = this.poules.filter(p => p.race.includes(motCle))
     return of(poulesTrouvees)
+  }
+
+  public addNewPoule(poule: Poule): Observable<Poule> {
+    let id = Math.random() * 5 + 1
+    poule.id = id;
+    this.poules.push(poule);
+    return of(poule);
+  }
+
+  public getPoule(id: number): Observable<Poule> {
+
+    let poule = this.poules.find(p => p.id == id);
+    if (poule != undefined) { return of(poule); } else {
+      return throwError(() => new Error("Poule non trouvée"))
+    }
+  }
+
+  public getErrorMessage(champ: string, error: ValidationErrors) {
+    if (error['required']) {
+      return champ + " est obligatoire ! ";
+    } else if (error['maxlength']) {
+      return champ + " doit contenir au maximum " + error['maxlength']['requiredLength'] + " caractères!";
+    } else if (error['minlength']) {
+      return champ + " doit contenir au minimum " + error['minlength']['requiredLength'] + " caractères!";
+    } else { return ""; }
+  }
+
+  public UpdatePoule(poule: Poule): Observable<Poule> {
+    this.poules = this.poules.map(p => (p.id == poule.id) ? poule : p)
+    return of(poule);
   }
 }
