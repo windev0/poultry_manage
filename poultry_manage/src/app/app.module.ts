@@ -17,7 +17,6 @@ import { PouleComponent } from './poule/poule.component';
 import { OeufComponent } from './oeuf/oeuf.component';
 import { VenteComponent } from './vente/vente.component';
 import { RapportComponent } from './rapport/rapport.component';
-import { AjouterPouleComponent } from './ajouter-poule/ajouter-poule.component';
 import { AjouterVenteComponent } from './ajouter-vente/ajouter-vente.component';
 import { AjouterOeufComponent } from './ajouter-oeuf/ajouter-oeuf.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +30,6 @@ import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
     OeufComponent,
     VenteComponent,
     RapportComponent,
-    AjouterPouleComponent,
     AjouterVenteComponent,
     AjouterOeufComponent,
     NouvPouleComponent
