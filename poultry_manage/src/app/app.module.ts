@@ -17,12 +17,11 @@ import { PouleComponent } from './poule/poule.component';
 import { OeufComponent } from './oeuf/oeuf.component';
 import { VenteComponent } from './vente/vente.component';
 import { RapportComponent } from './rapport/rapport.component';
-import { AjouterVenteComponent } from './ajouter-vente/ajouter-vente.component';
-import { AjouterOeufComponent } from './ajouter-oeuf/ajouter-oeuf.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
 import { EditPouleComponent } from './edit-poule/edit-poule.component';
 import { EditOeufComponent } from './edit-oeuf/edit-oeuf.component';
+import { NouvOeufComponent } from './nouv-oeuf/nouv-oeuf.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +31,10 @@ import { EditOeufComponent } from './edit-oeuf/edit-oeuf.component';
     OeufComponent,
     VenteComponent,
     RapportComponent,
-    AjouterVenteComponent,
-    AjouterOeufComponent,
     NouvPouleComponent,
     EditPouleComponent,
-    EditOeufComponent
+    EditOeufComponent,
+    NouvOeufComponent
   ],
   imports: [
     BrowserModule,

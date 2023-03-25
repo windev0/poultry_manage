@@ -8,6 +8,7 @@ import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
 import { OeufComponent } from './oeuf/oeuf.component';
 import { PouleComponent } from './poule/poule.component';
 import { RapportComponent } from './rapport/rapport.component';
+import { NouvOeufComponent } from './nouv-oeuf/nouv-oeuf.component';
 import { VenteComponent } from './vente/vente.component';
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: "rapport", component: RapportComponent },
   { path: "ajouterPoule", component: NouvPouleComponent },
   { path: "editPoule/:id", component: EditPouleComponent },
-  { path: "editOeuf/:id", component: EditOeufComponent }
+  { path: "editOeuf/:id", component: EditOeufComponent },
+  { path: "ajouterOeuf", component: NouvOeufComponent }
 ];
 
 @NgModule({

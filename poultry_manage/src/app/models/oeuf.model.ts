@@ -8,3 +8,10 @@ export interface Oeuf {
     date: String;
     qualite: Qualite;
 }
+
+export interface PageOeuf{
+    oeufs : Oeuf[];
+    page : number;
+    size : number;
+    totalPages : number;
+}

@@ -36,6 +36,7 @@ export class EditOeufComponent implements OnInit {
 
   public handleUpdateOeuf() {
     let p = this.oeufFormGroup.value;
+    p.id = this.oeuf.id
     this.oeufService.updateOeuf(p).subscribe({
       next : (value)=>{
         this.oeuf = value;

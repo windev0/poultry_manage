@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,8 @@
     <title>oeufs</title>
     <link rel="stylesheet" href="oeuf.component.css">
 </head>
-<body>
+
+<body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">PoultryTracker</a>
@@ -28,7 +30,18 @@
     <ng-template #errors>
         <span class="text-danger">{{errorMessage}} </span>
     </ng-template>
+    
+    <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchOeufs()">
+        <div class="input-group">
+            <label class="input-group-text">Taper ici</label>
+            <input type="text" name="" id="" class="form-control" placeholder="saisir un mot clé..."
+                formControlName="motCle">
+            <button class="btn btn-info"><i class="bi bi-search"></i></button>
+        </div>
+    </form>
+    <p></p>
     <main>
+
         <table class="table table-bordered table-striped table-light table-hover text-center table-responsive">
             <thead class="table-dark ">
                 <tr class="table-secondary ">
@@ -54,13 +67,25 @@
                             <span *ngIf="o.qualite == 'mauvais'">met. vendre</span>
                         </button>
                     </td>
-                    <td><button class="btn btn-warning " (click)="handleEditOeuf(o)"><i class="bi bi-pencil bi-white"></i></button></td>
+                    <td><button class="btn btn-warning " (click)="handleEditOeuf(o)"><i
+                                class="bi bi-pencil bi-white"></i></button></td>
                     <td><button class="btn btn-danger" (click)="handleDeleteOeuf(o)"><i
                                 class="fas fa-trash-alt"></i></button></td>
                 </tr>
-
             </tbody>
         </table>
+        <ul class="nav nav-pills">
+            <li *ngFor="let item of [].constructor(this.totalPages); let i = index">
+                <a (click)="goToPage(i)" [ngClass]="i == currentPage?'btn-info':'btn-outline-info'"
+                    class="btn  ms-1 mt-1 ">{{i}}</a>
+            </li>
+        </ul>
+        <div class="mt-3 mb-3">
+            <div class="container">
+                <button class="btn btn-success" (click)="handleNewOeuf()">+ AJOUTER</button>
+            </div>
+        </div>
     </main>
 </body>
+
 </html>

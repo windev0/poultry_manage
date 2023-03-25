@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
-import { Oeuf } from '../models/oeuf.model';
+import { Oeuf, PageOeuf } from '../models/oeuf.model';
 
 enum Qualite {
   'bon' = 'bon',
@@ -11,6 +11,9 @@ enum Qualite {
   providedIn: 'root'
 })
 export class OeufService {
+  getPagePoules(currentPage: number, Pagesize: number) {
+    throw new Error('Method not implemented.');
+  }
 
   private oeufs!: Array<Oeuf>;
   constructor() {
@@ -73,7 +76,31 @@ export class OeufService {
   }
 
   public updateOeuf(oeuf: Oeuf): Observable<Oeuf> {
-    this.oeufs = this.oeufs.map(o => (o.id == oeuf.id )? oeuf : o)
+    this.oeufs = this.oeufs.map(o => (o.id == oeuf.id) ? oeuf : o)
     return of(oeuf)
+  }
+
+  public addNewOeuf(o: Oeuf): Observable<Oeuf> {
+    let index = Math.random() * 5 + 1
+    o.id = index;
+    this.oeufs.push(o);
+    return of(o)
+  }
+
+  public getPagesOeufs(page: number, size: number): Observable<PageOeuf> {
+
+    let index = page * size;
+    let totalPages = ~~(this.oeufs.length / size);
+
+    if (this.oeufs.length % size != 0) {
+      totalPages++;
+    }
+    let pagesOeufs = this.oeufs.slice(index, index + size);
+    return of({ page: page, size: size, totalPages: totalPages, oeufs: pagesOeufs });
+  }
+
+  public searchOeuf(motCle : string) : Observable<Oeuf[]>{
+    let oeufsTrouves = this.oeufs.filter(p => p.date.includes(motCle) || p.qualite.includes(motCle))
+    return of(oeufsTrouves)
   }
 }
