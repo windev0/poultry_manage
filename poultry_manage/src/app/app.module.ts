@@ -22,6 +22,8 @@ import { NouvPouleComponent } from './nouv-poule/nouv-poule.component';
 import { EditPouleComponent } from './edit-poule/edit-poule.component';
 import { EditOeufComponent } from './edit-oeuf/edit-oeuf.component';
 import { NouvOeufComponent } from './nouv-oeuf/nouv-oeuf.component';
+import { NouvVenteComponent } from './nouv-vente/nouv-vente.component';
+import { EditVenteComponent } from './edit-vente/edit-vente.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { NouvOeufComponent } from './nouv-oeuf/nouv-oeuf.component';
     NouvPouleComponent,
     EditPouleComponent,
     EditOeufComponent,
-    NouvOeufComponent
+    NouvOeufComponent,
+    NouvVenteComponent,
+    EditVenteComponent
   ],
   imports: [
     BrowserModule,

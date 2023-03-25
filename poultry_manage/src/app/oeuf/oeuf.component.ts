@@ -35,7 +35,7 @@ export class OeufComponent implements OnInit {
     this.searchFormGroup = this.fb.group({
       motCle: this.fb.control(null)
     });
-    this.handleSearchOeufs();
+    // this.handleSearchOeufs();
   }
 
   public handleGetAllOeufs() {
