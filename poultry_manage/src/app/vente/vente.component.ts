@@ -62,7 +62,9 @@ export class VenteComponent implements OnInit {
 
   public goToPage(i: number) { }
 
-  public handleNewVente() { }
+  public handleNewVente() { 
+    this.route.navigateByUrl("ajouterVente")
+  }
 
 
 }

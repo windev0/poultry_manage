@@ -39,7 +39,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-primary">Date</label>
-                    <input type="text" formControlName="date" class="form-control">
+                    <input type="date" formControlName="date" class="form-control">
                     <small *ngIf="pouleFormGroup.controls['date'].errors && pouleFormGroup.controls['date'].touched"
                         class="text-danger">
                         {{pouleService.getErrorMessage('Date', pouleFormGroup.controls['date'].errors)}}

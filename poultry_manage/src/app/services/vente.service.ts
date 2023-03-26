@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ValidationErrors, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { Vente } from '../models/vente.model';
 
@@ -81,5 +82,20 @@ export class VenteService {
 
   public getAllVentes(): Observable<Array<Vente>> {
     return of(this.ventes);
+  }
+
+  public getErrorMessage(champ: string, error: ValidationErrors) {
+    if (error['required']) {
+      return champ + " est obligatoire ! ";
+    } else if (error['maxlength']) {
+      return champ + " doit contenir au maximum " + error['maxlength']['requiredLength'] + " caractères!";
+    } else if (error['minlength']) {
+      return champ + " doit contenir au minimum " + error['minlength']['requiredLength'] + " caractères!";
+    } else { return ""; }
+  }
+
+  public addNewVente(vente: Vente): Observable<Vente> {
+    this.ventes.push(vente);
+    return of(vente)
   }
 }
