@@ -23,3 +23,10 @@ export interface Vente{
     date : string,
     client : Client
 }
+
+export interface PageVente{
+    ventes : Vente[];
+    page : number;
+    size : number;
+    totalPages : number;
+}

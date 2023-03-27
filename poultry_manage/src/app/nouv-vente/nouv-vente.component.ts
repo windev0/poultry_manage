@@ -11,48 +11,55 @@ import { VenteService } from '../services/vente.service';
 export class NouvVenteComponent implements OnInit {
 
   venteFormGroup!: FormGroup;
+  clientFormGroup!: FormGroup;
   client!: Client;
-  idClient! : number;
+  idClient!: number;
   id!: number;
   vente!: Vente;
 
-  constructor(private fb: FormBuilder, public venteService: VenteService) { }
+  constructor(private fb: FormBuilder, private fb2: FormBuilder, public venteService: VenteService) { }
 
   ngOnInit(): void {
+    // this.fb = new FormBuilder();
     this.venteFormGroup = this.fb.group({
       produit: this.fb.control(null, [Validators.required]),
       prix_U: this.fb.control(null, [Validators.required]),
       quantite: this.fb.control(null, [Validators.required]),
       remise: this.fb.control(null, [Validators.required, Validators.min(0)]),
       date: this.fb.control(null, [Validators.required, Validators.minLength(10)]),
-      nom: this.fb.control("", [Validators.required]),
-      prenom: this.fb.control("", [Validators.required]),
-      sexe: this.fb.control("", [Validators.required]),
-      email: this.fb.control("", [Validators.required]),
-      adresse: this.fb.control("", [Validators.required])
     });
+    this.clientFormGroup = this.fb2.group({
+      nom: this.fb2.control(null, [Validators.required]),
+      prenom: this.fb2.control(null, [Validators.required]),
+      sexe: this.fb2.control(null, [Validators.required]),
+      email: this.fb2.control(null, [Validators.required]),
+      adresse: this.fb2.control(null, [Validators.required])
+    })
     this.id = 1;
     this.idClient = 7;
   }
 
+  public handleClientSubmit() {
+    this.idClient = this.idClient + 1;
+    this.venteService.addNewClient(this.clientFormGroup.value, this.id).subscribe({
+      next: (value) => {
+        this.clientFormGroup.reset();
+      }, error: (err) => {
+        alert('error ==>' + err)
+      }
+    })
+  }
   public handleAddSubmit() {
-    this.client.id = this.idClient;
-    this.client.nom = this.venteFormGroup.value['nom'];
-    this.client.prenom = this.venteFormGroup.value['prenom'];
-    this.client.email = this.venteFormGroup.value['email'];
-    this.client.sexe = this.venteFormGroup.value['sexe'];
-    this.client.adresse = this.venteFormGroup.value['adresse'];
-    this.vente.id = this.id;
-    this.vente.client = this.client;
-    this.venteService.addNewVente(this.vente).subscribe({
+    this.id = this.id + 1;
+    // this.handleClientSubmit();
+    this.venteService.addNewVente(this.venteFormGroup.value, this.id).subscribe({
       next: (value) => {
         alert('Nouvelle vente ajoutée avec succès!');
         this.venteFormGroup.reset();
       }, error: (err) => {
-        alert(err)
+        alert('error ==>' + err)
       }
     })
   }
-
-
+ 
 }
