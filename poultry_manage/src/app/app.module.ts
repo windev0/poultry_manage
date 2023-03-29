@@ -24,6 +24,8 @@ import { EditOeufComponent } from './edit-oeuf/edit-oeuf.component';
 import { NouvOeufComponent } from './nouv-oeuf/nouv-oeuf.component';
 import { NouvVenteComponent } from './nouv-vente/nouv-vente.component';
 import { EditVenteComponent } from './edit-vente/edit-vente.component';
+import { DepensesComponent } from './depenses/depenses.component';
+import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { EditVenteComponent } from './edit-vente/edit-vente.component';
     EditOeufComponent,
     NouvOeufComponent,
     NouvVenteComponent,
-    EditVenteComponent
+    EditVenteComponent,
+    DepensesComponent,
+    NouvDepenseComponent
   ],
   imports: [
     BrowserModule,

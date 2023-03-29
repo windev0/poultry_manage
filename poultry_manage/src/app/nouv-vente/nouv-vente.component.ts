@@ -54,6 +54,7 @@ export class NouvVenteComponent implements OnInit {
     // this.handleClientSubmit();
     this.venteService.addNewVente(this.venteFormGroup.value, this.id).subscribe({
       next: (value) => {
+        console.log(this.venteFormGroup.value)
         alert('Nouvelle vente ajoutée avec succès!');
         this.venteFormGroup.reset();
       }, error: (err) => {
