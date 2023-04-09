@@ -14,6 +14,7 @@ import { NouvVenteComponent } from './nouv-vente/nouv-vente.component';
 import { EditVenteComponent } from './edit-vente/edit-vente.component';
 import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 import { DepensesComponent } from './depenses/depenses.component';
+import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "ajouterPoule", component: NouvPouleComponent },
   { path: "editPoule/:id", component: EditPouleComponent },
   { path: "editOeuf/:id", component: EditOeufComponent },
+  { path: "editDepense/:id", component: EditDepenseComponent },
   { path: "editVente/:id", component: EditVenteComponent },
   { path: "ajouterOeuf", component: NouvOeufComponent },
   { path: "ajouterVente", component: NouvVenteComponent },

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {ValidationErrors } from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
-import { Client, Vente, PageVente } from '../models/vente.model';
+import {Vente, PageVente } from '../models/vente.model';
 
 
 enum Produit {
@@ -14,66 +14,26 @@ enum Produit {
 export class VenteService {
 
   ventes!: Vente[];
-  cl!: Client;
+  // cl!: Client;
   v!: Vente;
 
   constructor() {
     this.ventes = [
       {
         id: 1, produit: Produit.poule, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003',
-        client: {
-          id: 1,
-          nom: 'AWOUNO',
-          prenom: 'Kossi winner',
-          email: 'kossiwinnerawouno@gmail.com',
-          sexe: 'Masculin',
-          adresse: 'Klémé Agokpanou'
-        }
+        // client: {
+        //   id: 1,
+        //   nom: 'AWOUNO',
+        //   prenom: 'Kossi winner',
+        //   email: 'kossiwinnerawouno@gmail.com',
+        //   sexe: 'Masculin',
+        //   adresse: 'Klémé Agokpanou'
+        // }
       },
-      {
-        id: 2, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003',
-        client: {
-          id: 3,
-          nom: 'AWOUNO',
-          prenom: 'Kossi winner',
-          email: 'kossiwinnerawouno@gmail.com',
-          sexe: 'Féminin',
-          adresse: 'Klémé Agokpanou'
-        }
-      },
-      {
-        id: 4, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003',
-        client: {
-          id: 1,
-          nom: 'AWOUNO',
-          prenom: 'Kossi winner',
-          email: 'kossiwinnerawouno@gmail.com',
-          sexe: 'Masculin',
-          adresse: 'Klémé Agokpanou'
-        }
-      },
-      {
-        id: 5, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003',
-        client: {
-          id: 1,
-          nom: 'AWOUNO',
-          prenom: 'Kossi winner',
-          email: 'kossiwinnerawouno@gmail.com',
-          sexe: 'Masculin',
-          adresse: 'Klémé Agokpanou'
-        }
-      },
-      {
-        id: 16, produit: Produit.poule, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003',
-        client: {
-          id: 1,
-          nom: 'ASOOER',
-          prenom: 'Kossi winner',
-          email: 'kossiwinnerawouno@gmail.com',
-          sexe: 'Masculin',
-          adresse: 'Klémé Agokpanou'
-        }
-      }
+      { id: 2, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003' },
+      { id: 4, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003' },
+      { id: 5, produit: Produit.oeuf, prix_U: 400, quantite: 4, remise: 0.5, date: '15/15/2003' },
+      { id: 16, produit: Produit.poule, prix_U: 400, quantite: 4, remise: 0.5, date: '2003-05-15' }
     ]
   }
 
@@ -95,14 +55,14 @@ export class VenteService {
       return champ + " doit contenir au minimum " + error['minlength']['requiredLength'] + " caractères!";
     } else { return ""; }
   }
-  public addNewClient(client: Client, idClient: number): Observable<Client> {
+  // public addNewClient(idClient: number): Observable<Client> {
 
-    this.cl = client;
-    return of(this.cl);
-  }
+  //   // this.cl = client;
+  //   return of(this.cl);
+  // }
   public addNewVente(vente: Vente, id: number): Observable<Vente> {
     vente.id = id;
-    vente.client = this.cl;
+    // vente.client = this.cl;
     this.ventes.push(vente);
     return of(vente)
   }
@@ -125,7 +85,7 @@ export class VenteService {
     }
     return throwError(() => new Error("Vente non trouvée"))
   }
- 
+
   public UpdateVente(vente: Vente): Observable<Vente> {
     this.ventes = this.ventes.map(p => (p.id == vente.id) ? vente : p)
     return of(vente);

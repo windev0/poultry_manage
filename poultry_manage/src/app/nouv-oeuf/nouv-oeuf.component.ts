@@ -17,19 +17,26 @@ export class NouvOeufComponent implements OnInit {
   ngOnInit(): void {
     this.oeufFormGroup = this.fb.group({
       date: this.fb.control(null, [Validators.required, Validators.minLength(10)]),
-      qualite : this.fb.control(null, [Validators.required])
+      qualite: this.fb.control(null, [Validators.required]),
+      quantite: this.fb.control(null, [Validators.required])
     })
   }
 
   handleAddSubmit() {
-    this.oeufService.addNewOeuf(this.oeufFormGroup.value).subscribe({
-      next: (value) => {
-        alert('Oeuf ajouté avec succès');
-        this.route.navigateByUrl("oeuf");
-      }, error: (err) => {
-        console.log(err)
-      }
-    })
+    let conf = confirm('Etes-vous certain de vouloir ajouter?')
+    if (conf) {
+      this.oeufService.addNewOeuf(this.oeufFormGroup.value).subscribe({
+
+        next: (value) => {
+          this.oeufFormGroup.reset()
+          alert('Oeufs ajoutés avec succès');
+          // this.route.navigateByUrl("oeuf");
+        }, error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+
   }
 
 }

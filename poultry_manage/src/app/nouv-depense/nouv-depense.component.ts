@@ -19,6 +19,7 @@ export class NouvDepenseComponent implements OnInit {
       libelle: this.fb.control(null, [Validators.required]),
       montant: this.fb.control(null, [Validators.required]),
       date: this.fb.control(null, [Validators.required]),
+      auteur : this.fb.control(null, [Validators.required])
     })
   }
 

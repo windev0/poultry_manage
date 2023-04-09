@@ -32,21 +32,27 @@ export class EditPouleComponent implements OnInit {
       date: this.fb.control(this.poule.date, [Validators.required, Validators.minLength(10)]),
       race: this.fb.control(this.poule.race, [Validators.required, Validators.maxLength(10)]),
       sexe: this.fb.control(this.poule.sexe, [Validators.required, Validators.maxLength(2)]),
-      poids: this.fb.control(this.poule.poids, [Validators.required])
+      poids: this.fb.control(this.poule.poids, [Validators.required]),
+      quantite: this.fb.control(this.poule.quantite, [Validators.required])
     });
   }
 
   public handleUpdatePoule() {
-    let p = this.pouleFormGroup.value;
-    p.id = this.poule.id;
+    let conf = confirm('voulez-vous vraiment enregistrer ces modifications?')
+    if (conf) {
+      let p = this.pouleFormGroup.value;
+      p.id = this.poule.id;
 
-    this.pouleService.UpdatePoule(p).subscribe({
-      next: (value) => {
-        alert('Modification en registrée avec succès !');
-        this.router.navigateByUrl('poule');
-      }, error : (err)=>{
-        console.log(err);
-      }
-    });
+      this.pouleService.UpdatePoule(p).subscribe({
+
+        next: (value) => {
+          alert('Modification en registrée avec succès !');
+          this.router.navigateByUrl('poule');
+        }, error: (err) => {
+          console.log(err);
+        }
+      });
+    }
   }
+
 }

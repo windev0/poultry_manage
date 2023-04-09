@@ -3,6 +3,7 @@ export interface Depense{
     libelle : string;
     montant : number;
     date : string;
+    auteur : String;
 }
 
 export interface PageDepense{

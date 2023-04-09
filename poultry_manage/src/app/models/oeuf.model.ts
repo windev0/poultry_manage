@@ -7,6 +7,7 @@ export interface Oeuf {
     id: number;
     date: String;
     qualite: Qualite;
+    quantite : number;
 }
 
 export interface PageOeuf{

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable, of, retry, throwError } from 'rxjs';
 import { Depense, PageDepense } from '../models/depenses';
 
 @Injectable({
@@ -14,16 +14,16 @@ export class DepenseService {
 
   constructor() {
     this.depenses = [
-      { id: 1, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 2, libelle: 'achat de produits', montant: 4000, date: '12/12/2022' },
-      { id: 3, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 4, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 5, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 6, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 7, libelle: 'vaccination des poules', montant: 15000, date: '22/01/2023' },
-      { id: 8, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 9, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
-      { id: 10, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022' },
+      { id: 1, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 2, libelle: 'achat de produits', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 3, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 4, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 5, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 6, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 7, libelle: 'vaccination des poules', montant: 15000, date: '22/01/2023', auteur: 'ATTITSO Emilie' },
+      { id: 8, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 9, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
+      { id: 10, libelle: 'achat de materiel', montant: 4000, date: '12/12/2022', auteur: 'ATTITSO Emilie' },
     ];
   }
 
@@ -52,6 +52,16 @@ export class DepenseService {
     return of(this.depenses);
   }
 
+  public getDepenses(id: number): Observable<Depense> {
+
+    let d = this.depenses.find(d => d.id == id);
+    if (d != undefined) { return of(d) }
+    else {
+      return throwError(() => new Error('Dépense non trouvé'))
+    }
+
+  }
+
   public searchDepenses(motCle: string): Observable<Depense[]> {
     let depenseTrouvees = this.depenses.filter(d => d.libelle.includes(motCle));
     return of(depenseTrouvees);
@@ -64,8 +74,13 @@ export class DepenseService {
     if (this.depenses.length % size != 0) {
       totalPages++;
     }
-    let depenseTotalParPage = this.depenses.slice(index, index+size);
-    return of({ currentPage: currentPage, size: size, totalPage: totalPages, depenseTotalParPage: depenseTotalParPage})
+    let depenseTotalParPage = this.depenses.slice(index, index + size);
+    return of({ currentPage: currentPage, size: size, totalPage: totalPages, depenseTotalParPage: depenseTotalParPage })
   }
 
+  public updateDepense(depense: Depense, id: number): Observable<boolean> {
+    depense.id = id;
+    this.depenses = this.depenses.map(d => d.id == id ? d = depense : d)
+    return of(true);
+  }
 }

@@ -34,7 +34,7 @@
             <form [formGroup]="oeufFormGroup" (ngSubmit)="handleAddSubmit()">
                 <div class="mb-3">
                     <label class="form-label text-primary">Date</label>
-                    <input type="text" formControlName="date" class="form-control">
+                    <input type="date" formControlName="date" class="form-control">
                     <small *ngIf="oeufFormGroup.controls['date'].errors && oeufFormGroup.controls['date'].touched"
                         class="text-danger">
                         {{oeufService.getErrorMessage('Date', oeufFormGroup.controls['date'].errors)}}
@@ -51,6 +51,14 @@
                     class="text-danger">
                     {{oeufService.getErrorMessage('Qualite', oeufFormGroup.controls['qualite'].errors)}}
                 </small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-primary">Quantite</label>
+                    <input type="number" formControlName="quantite" class="form-control">
+                    <small *ngIf="oeufFormGroup.controls['quantite'].errors && oeufFormGroup.controls['quantite'].touched"
+                        class="text-danger">
+                        {{oeufService.getErrorMessage('Quantite', oeufFormGroup.controls['quantite'].errors)}}
+                    </small>
                 </div>
                 <div>
                     <button [disabled]="!oeufFormGroup.valid" class="btn btn-success mt-5 mb-3"

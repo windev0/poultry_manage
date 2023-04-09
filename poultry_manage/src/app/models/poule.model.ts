@@ -10,6 +10,7 @@ export interface Poule {
     race: String;
     sexe: String;
     poids: Poids;
+    quantite : number;
 }
 
 export interface PagePoule{

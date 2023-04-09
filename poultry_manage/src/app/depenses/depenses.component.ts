@@ -47,8 +47,10 @@ export class DepensesComponent implements OnInit {
   }
 
   public handleEditDepense(depense: Depense) {
+    this.route.navigateByUrl('editDepense/' + depense.id);
 
   }
+
   public handleDeleteDepense(depense: Depense) {
     let conf = confirm('Etes-vous certain de vouloir supprimer cette dépense?');
     if (conf) {
@@ -71,9 +73,9 @@ export class DepensesComponent implements OnInit {
     this.depenseService.getPageDepenses(this.currentPage, this.size).subscribe({
       next: (value) => {
         this.currentPage = value.currentPage,
-        this.size = value.size,
-        this.depenses = value.depenseTotalParPage,
-        this.totalPages = value.totalPage
+          this.size = value.size,
+          this.depenses = value.depenseTotalParPage,
+          this.totalPages = value.totalPage
       }, error: (err) => {
         this.errorMessage = err;
       }

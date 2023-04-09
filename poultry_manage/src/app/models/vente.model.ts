@@ -1,19 +1,16 @@
-import { Oeuf } from "./oeuf.model";
-import { Poule } from "./poule.model";
-
 enum Produit{
     oeuf = 'oeuf',
     poule = 'poule'
 }
 
-export interface Client{
-    id : number,
-    nom : string,
-    prenom : string,
-    email : string,
-    sexe : string,
-    adresse : string
-}
+// export interface Client{
+//     id : number,
+//     nom : string,
+//     prenom : string,
+//     email : string,
+//     sexe : string,
+//     adresse : string
+// }
 export interface Vente{
     id : number,
     produit : Produit,
@@ -21,7 +18,7 @@ export interface Vente{
     quantite : number,
     remise : number,
     date : string,
-    client : Client
+    // client : Client
 }
 
 export interface PageVente{

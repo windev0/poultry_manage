@@ -26,12 +26,12 @@
             </a>
             <a class="nav-link active" routerLink="/depense" style="color:white; font-size: medium; margin-right: 20px;">
                 <i class="bi bi-graph-down-arrow"></i> Gestion des dépenses
-            </a>
+            </a>    
         </nav>
     </mat-toolbar>
     <main>
         <div class="container mt-3 col-md-6 offset-md-3">
-            <form [formGroup]="depensesFormGroup" (ngSubmit)="handleAddDepense()">
+            <form [formGroup]="depensesFormGroup" (ngSubmit)="handleUpdateDepense()">
                 <div class="mb-3">
                     <label class="form-label text-primary">Libellé</label>
                     <input type="text" formControlName="libelle" class="form-control">
@@ -74,3 +74,4 @@
 </body>
 
 </html>
+

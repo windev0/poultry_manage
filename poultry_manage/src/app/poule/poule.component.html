@@ -26,7 +26,7 @@
                 <i class="bi bi-house-door"></i> Accueil
             </a>
         </nav>
-        <span style="margin-left: 30%;">PAGE DE GESTIONS DES POULES</span>
+        <span style="margin-left: 30%;">PAGE DE GESTIONS DES POULETS</span>
 
     </mat-toolbar>
     <main class="m-2">
@@ -50,6 +50,7 @@
                     <th scope="col">Race</th>
                     <th scope="col">Sexe</th>
                     <th scope="col">Poids</th>
+                    <th scope="col">Quantite</th>
                     <th scope="col">En vente</th>
                     <th scope="col"></th>
                     <th scope="col">Modifier</th>
@@ -63,6 +64,7 @@
                     <td> {{p.race}} </td>
                     <td> {{p.sexe}} </td>
                     <td> {{p.poids}} </td>
+                    <td> {{p.quantite}} </td>
                     <td> <i class="bi bi-check-circle text-success" *ngIf="p.poids == 'grande'"></i></td>
                     <td>
                         <button (click)="handleSetEnVendre(p)"

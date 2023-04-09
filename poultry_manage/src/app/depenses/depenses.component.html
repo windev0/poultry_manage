@@ -50,6 +50,7 @@
                     <th scope="col">Libellé</th>
                     <th scope="col">Montant</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Auteur</th>
                     <th scope="col">Modifier</th>
                     <th scope="col">Supprimer</th>
                 </tr>
@@ -60,7 +61,7 @@
                     <td>{{d.libelle}} </td>
                     <td>{{d.montant}} </td>
                     <td>{{d.date}} </td>
-
+                    <td>{{d.auteur}}</td>
                     <td><button class="btn btn-warning " (click)="handleEditDepense(d)"><i
                                 class="bi bi-pencil bi-white"></i></button></td>
                     <td><button class="btn btn-danger" (click)="handleDeleteDepense(d)"><i

@@ -18,19 +18,19 @@ export class OeufService {
   private oeufs!: Array<Oeuf>;
   constructor() {
     this.oeufs = [
-      { id: 1, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 2, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 3, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 4, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 5, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 6, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 7, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 8, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 9, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 10, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 11, date: '12/01/2022', qualite: Qualite.bon },
-      { id: 12, date: '12/01/2022', qualite: Qualite.mauvais },
-      { id: 13, date: '12/01/2022', qualite: Qualite.bon },
+      { id: 1, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 2, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 3, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 4, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 5, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 6, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 7, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 8, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 9, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 10, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 11, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
+      { id: 12, date: '12/01/2022', qualite: Qualite.mauvais, quantite: 4 },
+      { id: 13, date: '12/01/2022', qualite: Qualite.bon, quantite: 4 },
     ]
   }
 
@@ -99,7 +99,7 @@ export class OeufService {
     return of({ page: page, size: size, totalPages: totalPages, oeufs: pagesOeufs });
   }
 
-  public searchOeuf(motCle : string) : Observable<Oeuf[]>{
+  public searchOeuf(motCle: string): Observable<Oeuf[]> {
     let oeufsTrouves = this.oeufs.filter(p => p.date.includes(motCle) || p.qualite.includes(motCle))
     return of(oeufsTrouves)
   }

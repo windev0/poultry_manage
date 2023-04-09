@@ -49,6 +49,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Date</th>
                     <th scope="col">Qualité</th>
+                    <th scope="col">Quanité</th>
                     <th scope="col">En vente</th>
                     <th scope="col"></th>
                     <th scope="col">Modifier</th>
@@ -60,6 +61,7 @@
                     <th scope="row"> {{o.id}} </th>
                     <td>{{o.date}} </td>
                     <td>{{o.qualite}} </td>
+                    <td>{{o.quantite}} </td>
                     <td> <i class="bi bi-check-circle text-success" *ngIf="o.qualite == 'bon'"></i></td>
                     <td>
                         <button (click)="handleSetEnVente(o)"

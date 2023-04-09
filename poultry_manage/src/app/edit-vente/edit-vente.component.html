@@ -32,7 +32,7 @@
     </mat-toolbar>
     <main>
 
-        <div class="container mt-3 col-md-6 offset-md-3">
+        <!-- <div class="container mt-3 col-md-6 offset-md-3">
             <form [formGroup]="clientFormGroup" (ngSubmit)="handleUpdateClient()">
                 <div class="mb-3">
                     <span class="text-dark">INFORMATIONS SUR LE CLIENT</span>
@@ -120,10 +120,12 @@
                         client</button>
                 </div>
             </form>
-        </div>
+        </div> -->
+        
         <div class="container mt-3 col-md-6 offset-md-3">
+           <span class="text-primary mb-10 mt-5"> id : {{this.vente.id}}</span>
             <form [formGroup]="venteFormGroup" (ngSubmit)="handleUpdateVente()">
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <label class="form-label text-primary">Produit</label>
                     <select class="form-select form-select-md mb-3 form-control" aria-label=".form-select-lg example"
                         formControlName="produit">

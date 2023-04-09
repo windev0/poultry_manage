@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Client, Vente } from '../models/vente.model';
+import { Vente } from '../models/vente.model';
 import { VenteService } from '../services/vente.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class EditVenteComponent implements OnInit {
   clientFormGroup!: FormGroup;
   venteId!: number;
   vente!: Vente;
-  client!: Client;
+  // client!: Client;
   idClient!: number;
 
 
@@ -33,13 +33,13 @@ export class EditVenteComponent implements OnInit {
       date: this.fb.control(this.vente.date, [Validators.required, Validators.minLength(10)]),
     });
 
-    this.clientFormGroup = this.fb2.group({
-      nom: this.fb2.control(this.vente.client.nom, [Validators.required]),
-      prenom: this.fb2.control(this.vente.client.prenom, [Validators.required]),
-      sexe: this.fb2.control(this.vente.client.sexe, [Validators.required]),
-      email: this.fb2.control(this.vente.client.email, [Validators.required]),
-      adresse: this.fb2.control(this.vente.client.adresse, [Validators.required])
-    })
+    // this.clientFormGroup = this.fb2.group({
+    //   nom: this.fb2.control(this.vente.client.nom, [Validators.required]),
+    //   prenom: this.fb2.control(this.vente.client.prenom, [Validators.required]),
+    //   sexe: this.fb2.control(this.vente.client.sexe, [Validators.required]),
+    //   email: this.fb2.control(this.vente.client.email, [Validators.required]),
+    //   adresse: this.fb2.control(this.vente.client.adresse, [Validators.required])
+    // })
 
   }
   public handleGetVente() {
@@ -52,26 +52,30 @@ export class EditVenteComponent implements OnInit {
     })
   }
 
-  public handleUpdateClient() {
-    this.client = this.clientFormGroup.value;
-    this.client.id = this.vente.client.id;
-    this.clientFormGroup.reset()
-  }
+  // public handleUpdateClient() {
+  //   this.client = this.clientFormGroup.value;
+  //   this.client.id = this.vente.client.id;
+  //   this.clientFormGroup.reset()
+  // }
 
   public handleUpdateVente() {
     let v = this.venteFormGroup.value;
-    v.id = this.vente.id;
-    v.client = this.client;
+    let conf = confirm('Voulez-vous vraiment enregistrer les modifications?');
+    if (conf) {
+      v.id = this.vente.id;
+      // v.client = this.client;
 
-    this.venteService.UpdateVente(v).subscribe({
-      next: (value) => {
-        alert('Modification en registrée avec succès !');
-        this.venteFormGroup.reset()
-        this.route.navigateByUrl('vente');
-      }, error: (err) => {
-        console.log(err);
-      }
-    });
+      this.venteService.UpdateVente(v).subscribe({
+        next: (value) => {
+          alert('Modification en registrée avec succès !');
+          this.venteFormGroup.reset()
+          this.route.navigateByUrl('vente');
+        }, error: (err) => {
+          console.log(err);
+        }
+      });
+    }
+
   }
 
 }

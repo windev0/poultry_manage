@@ -26,6 +26,7 @@ import { NouvVenteComponent } from './nouv-vente/nouv-vente.component';
 import { EditVenteComponent } from './edit-vente/edit-vente.component';
 import { DepensesComponent } from './depenses/depenses.component';
 import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
+import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
     NouvVenteComponent,
     EditVenteComponent,
     DepensesComponent,
-    NouvDepenseComponent
+    NouvDepenseComponent,
+    EditDepenseComponent
   ],
   imports: [
     BrowserModule,

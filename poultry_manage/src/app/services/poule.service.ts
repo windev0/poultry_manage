@@ -16,31 +16,32 @@ enum Poids {
 export class PouleService {
 
   private poules!: Array<Poule>;
+  id : number = 8;
 
   constructor() {
     this.poules = [
 
-      { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite },
-      { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande },
-      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande },
+      { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
     ];
   }
 
@@ -85,8 +86,8 @@ export class PouleService {
   }
 
   public addNewPoule(poule: Poule): Observable<Poule> {
-    let id = Math.random() * 5 + 1
-    poule.id = id;
+     this.id++;
+    poule.id = this.id;
     this.poules.push(poule);
     return of(poule);
   }
