@@ -2,76 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.component.css">
-    <title>Connexion</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.component.css">
+  <title>Connexion</title>
 </head>
 
-<body class="bg-dark ">
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="#">PoultryTracker</a>
-          <div class="navbar-nav ms-auto">
-            <button class="btn btn-outline-danger">Déconnexion</button>
-          </div>
-        </div>
-      </nav>
-    
-      <mat-toolbar style="background-color: #1709d2;;">
-        <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
-        <a mat-button routerLink="/accueil" style="color:white; font-size: medium;">Accueil</a>
-        <div class="lien-baroutil">
-          <a mat-button href="#">Nous contacter</a>
-          <a mat-button href="#">Autres</a>
-        </div>
-        
-      </mat-toolbar>
-      
-      
-    
-      <div class="sidebar-container" (click)="sidenav.close()" class="sidebar" [class.hidden]="!showSidebar">
-        <mat-sidenav-container class="sidenav-container" style="background-color: black;">
-          <mat-sidenav #sidenav mode="over" [fixedInViewport]="true">
-            <mat-nav-list>
-              <div class="container mb-15">
-                <button type="button" class="close menu" aria-label="Close" (click)="toggleSidebar()"
-                  class=" text-danger border-none ">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="container mt-5">
-                <a mat-list-item href="#"><span class="lien">Accueil</span> </a>
-              </div>
-            </mat-nav-list>
-          </mat-sidenav>
-          <div class="container  d-flex align-items-center justify-content-center" style="height: 80vh;">
-            <form action="" method="post">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Nom d'utilisateur</label>
-                    <input type="text" class="form-control" id="username"  max="10" required>
-                    <div id="emailHelp" class="form-text">Votre identifiant est privé et ne sera pas diffusé.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="Password1" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="Password1">
-                </div>
-                <div class="passwordProblems">
-                    <a href="#">mot de passe oublié ?.</a> 
-                    <a href="#">créer un compte ?</a>
-                </div>
-                <button type="submit" class="btn btn-success text-center" routerLink="/accueil">Connexion</button>
-            
-            </form>
-        </div>
-        </mat-sidenav-container>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">PoultryTracker</a>
+      <div class="navbar-nav ms-auto">
+        <button class="btn btn-outline-danger">Déconnexion</button>
       </div>
-   
-    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <router-outlet>
-        
-    </router-outlet>
+    </div>
+  </nav>
+
+  <mat-toolbar style="background-color: #1709d2; width:100%">
+    <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
+    <nav class="nav">
+      <a class="nav-link active" routerLink="/accueil" style="color:white; font-size: medium;">
+        <i class="bi bi-house-door"></i> Accueil
+      </a>
+    </nav>
+  </mat-toolbar>
+  <ng-template #errors>
+    <span class="text-danger">{{errorMessage}} </span>
+  </ng-template>
+  <main>
+    <div class="container  d-flex align-items-center justify-content-center" style="height: 80vh;">
+      <form action="" method="post" [formGroup]="formGroup" (ngSubmit)="handleLogin()">
+          <div class="mb-3">
+              <label for="username" class="form-label text-dark" >Identifiant</label>
+              <input type="text" class="form-control" formControlName="identifiant" id="username"  max="10" required>
+              <div id="emailHelp" class="form-text text-danger" style="font-size: smaller;">Votre identifiant est privé et ne sera pas diffusé.</div>
+          </div>
+          <div class="mb-3">
+              <label for="Password1" class="form-label text-dark" >Mot de passe</label>
+              <input type="password" class="form-control" formControlName="motDePasse" id="Password1">
+          </div>
+          <!-- <div>
+            <span>{{formGroup.value.identifiant}}</span>
+            <span>{{formGroup.value.motDePasse}}</span>
+
+          </div> -->
+          <div class="passwordProblems">
+              <a href="#">mot de passe oublié ?.</a> 
+              <a href="#">créer un compte ?</a>
+          </div>
+          <button type="submit" class="btn btn-success text-center">Connexion</button>
+      
+      </form>
+  </div>
+  </main>
 </body>
 
 </html>

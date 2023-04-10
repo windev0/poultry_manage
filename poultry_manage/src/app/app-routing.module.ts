@@ -19,6 +19,7 @@ import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
+  { path: "", component: LoginComponent },
   { path: "accueil", component: AppComponent },
   { path: "poule", component: PouleComponent },
   { path: "oeuf", component: OeufComponent },
