@@ -114,10 +114,10 @@ export class PouleComponent implements OnInit {
   }
 
   public handleNewPoule() {
-    this.router.navigateByUrl('ajouterPoule');
+    this.router.navigateByUrl('login/accueil/poule/ajouterPoule');
   }
 
   public handleEditPoule(p: Poule){
-    this.router.navigateByUrl('editPoule/'+p.id);
+    this.router.navigateByUrl('/login/accueil/poule/editPoule/'+p.id);
   }
 }

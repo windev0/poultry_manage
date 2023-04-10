@@ -18,23 +18,41 @@ import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 
 
 const routes: Routes = [
-  { path: "login", component: LoginComponent },
-  { path: "", component: LoginComponent },
-  { path: "accueil", component: AppComponent },
-  { path: "poule", component: PouleComponent },
-  { path: "oeuf", component: OeufComponent },
-  { path: "vente", component: VenteComponent },
-  { path: "depense", component: DepensesComponent },
-  { path: "rapport", component: RapportComponent },
-  { path: "ajouterPoule", component: NouvPouleComponent },
-  { path: "editPoule/:id", component: EditPouleComponent },
-  { path: "editOeuf/:id", component: EditOeufComponent },
-  { path: "editDepense/:id", component: EditDepenseComponent },
-  { path: "editVente/:id", component: EditVenteComponent },
-  { path: "ajouterOeuf", component: NouvOeufComponent },
-  { path: "ajouterVente", component: NouvVenteComponent },
-  { path: "ajouterDepense", component: NouvDepenseComponent },
+  {
+    path: "login", component: LoginComponent, children: [
+      {
+        path: "accueil", component: AppComponent, children: [
+          {
+            path: "poule", component: PouleComponent, children: [
+              { path: "ajouterPoule", component: NouvPouleComponent },
+              { path: "editPoule/:id", component: EditPouleComponent },
+            ]
+          },
+          {
+            path: "oeuf", component: OeufComponent, children: [
+              { path: "editOeuf/:id", component: EditOeufComponent },
+              { path: "ajouterOeuf", component: NouvOeufComponent },
+            ]
+          },
+          {
+            path: "vente", component: VenteComponent, children: [
+              { path: "editVente/:id", component: EditVenteComponent },
+              { path: "ajouterVente", component: NouvVenteComponent },
+            ]
+          },
+          {
+            path: "depense", component: DepensesComponent, children: [
+              { path: "editDepense/:id", component: EditDepenseComponent },
+              { path: "ajouterDepense", component: NouvDepenseComponent },
+            ]
+          }, 
+          { path: "rapport", component: RapportComponent },
+        ]
+      },
+    ]
+  },
 
+  { path: "", component: LoginComponent}
 ];
 
 @NgModule({

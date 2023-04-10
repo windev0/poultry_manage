@@ -1,3 +1,6 @@
+<router-outlet>
+
+</router-outlet>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,37 +12,38 @@
   <title>Connexion</title>
 </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<body class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">PoultryTracker</a>
-      <div class="navbar-nav ms-auto">
+      <a class="navbar-brand text-white" href="#" style="font-weight: 600;">PoultryTracker</a>
+      <!-- <div class="navbar-nav ms-auto">
         <button class="btn btn-outline-danger">Déconnexion</button>
-      </div>
+      </div> -->
     </div>
   </nav>
 
-  <mat-toolbar style="background-color: #1709d2; width:100%">
-    <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
+  <!-- <mat-toolbar style="background-color: #1709d2; width:100%">
+    <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon>
     <nav class="nav">
-      <a class="nav-link active" routerLink="/accueil" style="color:white; font-size: medium;">
-        <i class="bi bi-house-door"></i> Accueil
-      </a>
+     <span style="position:absolute; right:45%; top: 75px;">AUTHENTIFICATION</span>
     </nav>
-  </mat-toolbar>
+  </mat-toolbar> -->
   <ng-template #errors>
     <span class="text-danger">{{errorMessage}} </span>
   </ng-template>
-  <main>
+  <main class="">
     <div class="container  d-flex align-items-center justify-content-center" style="height: 80vh;">
       <form action="" method="post" [formGroup]="formGroup" (ngSubmit)="handleLogin()">
+        <div class="mb-3">
+          <span class="text-white" style="font-weight: bold; font-size:x-large;">AUTHENTIFICATION</span>
+        </div>
           <div class="mb-3">
-              <label for="username" class="form-label text-dark" >Identifiant</label>
+              <label for="username" class="form-label text-white" style="font-weight: 600;">Identifiant</label>
               <input type="text" class="form-control" formControlName="identifiant" id="username"  max="10" required>
               <div id="emailHelp" class="form-text text-danger" style="font-size: smaller;">Votre identifiant est privé et ne sera pas diffusé.</div>
           </div>
           <div class="mb-3">
-              <label for="Password1" class="form-label text-dark" >Mot de passe</label>
+              <label for="Password1" class="form-label text-white" style="font-weight: 600;">Mot de passe</label>
               <input type="password" class="form-control" formControlName="motDePasse" id="Password1">
           </div>
           <!-- <div>
@@ -48,10 +52,10 @@
 
           </div> -->
           <div class="passwordProblems">
-              <a href="#">mot de passe oublié ?.</a> 
-              <a href="#">créer un compte ?</a>
+              <a href="#" class="text-white">mot de passe oublié ?.</a> 
+              <a href="#" class="text-white">créer un compte ?</a>
           </div>
-          <button type="submit" class="btn btn-success text-center">Connexion</button>
+          <button type="submit" class="btn btn-success text-center" >Connexion</button>
       
       </form>
   </div>
@@ -59,3 +63,4 @@
 </body>
 
 </html>
+

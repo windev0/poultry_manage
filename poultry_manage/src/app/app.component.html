@@ -16,8 +16,8 @@
     <div class="container-fluid">
       <a class="navbar-brand text-white" href="#">PoultryTracker</a>
       <div class="navbar-nav ms-auto">
-        <button class="btn btn-outline-success me-2" routerLink="/login">Se connecter</button>
-        <button class="btn btn-outline-danger">Se déconnecter</button>
+        <!-- <button class="btn btn-outline-success me-2" routerLink="/login">Se connecter</button> -->
+        <button class="btn btn-outline-danger" routerLink="/login">Se déconnecter</button>
       </div>
     </div>
   </nav>
@@ -47,12 +47,12 @@
             </button>
           </div>
           <div class="container mt-5" >
-            <a mat-list-item routerLink="/accueil"><i class="bi bi-house-door mr-50" style="margin-right: 20px;"></i><span class="lien">Accueil</span> </a>
-            <a mat-list-item routerLink="/poule"><i class="bi bi-fast-forward-circle" style="margin-right: 20px;"></i><span class="lien">Gestion des poules</span> </a>
-            <a mat-list-item routerLink="/oeuf"><i class="bi bi-egg" style="margin-right: 20px;"></i><span class="lien">Gestion des oeufs</span> </a>
-            <a mat-list-item routerLink="/vente"><i class="bi bi-basket" style="margin-right: 20px;"></i><span class="lien">Gestion des ventes</span> </a>
-            <a mat-list-item routerLink="/depense"><i class="bi bi-graph-down-arrow" style="margin-right: 20px;"></i><span class="lien">Gestion des dépenses</span> </a>
-            <a mat-list-item routerLink="/rapport"><i class="bi bi-graph-up-arrow" style="margin-right: 20px;"></i><span class="lien">Rapports</span> </a>
+            <a mat-list-item routerLink="/login/accueil"><i class="bi bi-house-door mr-50" style="margin-right: 20px;"></i><span class="lien">Accueil</span> </a>
+            <a mat-list-item routerLink="/login/accueil/poule"><i class="bi bi-fast-forward-circle" style="margin-right: 20px;"></i><span class="lien">Gestion des poules</span> </a>
+            <a mat-list-item routerLink="/login/accueil/oeuf"><i class="bi bi-egg" style="margin-right: 20px;"></i><span class="lien">Gestion des oeufs</span> </a>
+            <a mat-list-item routerLink="/login/accueil/vente"><i class="bi bi-basket" style="margin-right: 20px;"></i><span class="lien">Gestion des ventes</span> </a>
+            <a mat-list-item routerLink="/login/accueil/depense"><i class="bi bi-graph-down-arrow" style="margin-right: 20px;"></i><span class="lien">Gestion des dépenses</span> </a>
+            <a mat-list-item routerLink="/login/accueil/rapport"><i class="bi bi-graph-up-arrow" style="margin-right: 20px;"></i><span class="lien">Rapports</span> </a>
           </div>
         </mat-nav-list>
       </mat-sidenav>

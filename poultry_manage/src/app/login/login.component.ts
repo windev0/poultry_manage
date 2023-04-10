@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       next: (value) => {
         this.authService.authenticateUser(value).subscribe({
           next: (value) => {
-            this.router.navigateByUrl('accueil');
+            this.router.navigateByUrl('/login/accueil');
           }, error: (err) => {
             this.errorMessage = err;
           }

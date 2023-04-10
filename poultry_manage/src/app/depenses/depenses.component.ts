@@ -47,7 +47,7 @@ export class DepensesComponent implements OnInit {
   }
 
   public handleEditDepense(depense: Depense) {
-    this.route.navigateByUrl('editDepense/' + depense.id);
+    this.route.navigateByUrl('login/accueil/depense/editDepense/' + depense.id);
 
   }
 
@@ -66,7 +66,7 @@ export class DepensesComponent implements OnInit {
 
 
   public handleNewDepense() {
-    this.route.navigateByUrl('ajouterDepense')
+    this.route.navigateByUrl('login/accueil/depense/ajouterDepense')
   }
 
   public handlePagesDepenses() {

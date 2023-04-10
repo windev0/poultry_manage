@@ -49,7 +49,7 @@ export class VenteComponent implements OnInit {
   }
 
   public handleEditVente(v: Vente) {
-    this.route.navigateByUrl('editVente/'+v.id)
+    this.route.navigateByUrl('login/accueil/vente/editVente/'+v.id)
   }
 
   public handleDeleteVente(vente: Vente) {
@@ -95,7 +95,7 @@ export class VenteComponent implements OnInit {
 
 
   public handleNewVente() {
-    this.route.navigateByUrl("ajouterVente")
+    this.route.navigateByUrl("login/accueil/vente/ajouterVente")
   }
 
 

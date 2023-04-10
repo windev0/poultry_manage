@@ -73,11 +73,11 @@ export class OeufComponent implements OnInit {
   }
 
   public handleEditOeuf(o: Oeuf) {
-    this.route.navigateByUrl('editOeuf/' + o.id)
+    this.route.navigateByUrl('login/accueil/oeuf/editOeuf/' + o.id)
   }
 
   public handleNewOeuf() {
-    this.route.navigateByUrl('ajouterOeuf');
+    this.route.navigateByUrl('login/accueil/oeuf/ajouterOeuf');
   }
 
   handlePagesOeufs() {
