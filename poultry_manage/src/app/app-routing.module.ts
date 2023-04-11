@@ -15,13 +15,17 @@ import { EditVenteComponent } from './edit-vente/edit-vente.component';
 import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 import { DepensesComponent } from './depenses/depenses.component';
 import { EditDepenseComponent } from './edit-depense/edit-depense.component';
+import { AuthentificationGuard } from './guards/authentification.guard';
 
 
 const routes: Routes = [
   {
-    path: "login", component: LoginComponent, children: [
+    path: "login", component: LoginComponent,
+
+    children: [
       {
-        path: "accueil", component: AppComponent, children: [
+        path: "accueil", component: AppComponent, canActivate: [AuthentificationGuard],
+        children: [
           {
             path: "poule", component: PouleComponent, children: [
               { path: "ajouterPoule", component: NouvPouleComponent },
@@ -45,14 +49,14 @@ const routes: Routes = [
               { path: "editDepense/:id", component: EditDepenseComponent },
               { path: "ajouterDepense", component: NouvDepenseComponent },
             ]
-          }, 
+          },
           { path: "rapport", component: RapportComponent },
         ]
       },
     ]
   },
 
-  { path: "", component: LoginComponent}
+  { path: "", component: LoginComponent,  canActivate : [AuthentificationGuard]}
 ];
 
 @NgModule({

@@ -27,6 +27,7 @@ import { EditVenteComponent } from './edit-vente/edit-vente.component';
 import { DepensesComponent } from './depenses/depenses.component';
 import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 import { EditDepenseComponent } from './edit-depense/edit-depense.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { EditDepenseComponent } from './edit-depense/edit-depense.component';
     MatListModule,
     MatToolbarModule,
     CarouselModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
