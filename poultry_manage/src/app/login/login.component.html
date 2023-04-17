@@ -37,30 +37,38 @@
         <div class="mb-3">
           <span class="text-white" style="font-weight: bold; font-size:x-large;">AUTHENTIFICATION</span>
         </div>
-          <div class="mb-3">
-              <label for="username" class="form-label text-white" style="font-weight: 600;">Identifiant</label>
-              <input type="text" class="form-control" formControlName="identifiant" id="username"  max="10" required>
-              <div id="emailHelp" class="form-text text-danger" style="font-size: smaller;">Votre identifiant est privé et ne sera pas diffusé.</div>
-          </div>
-          <div class="mb-3">
-              <label for="Password1" class="form-label text-white" style="font-weight: 600;">Mot de passe</label>
-              <input type="password" class="form-control" formControlName="motDePasse" id="Password1">
-          </div>
-          <!-- <div>
+        <div class="mb-3">
+          <label for="username" class="form-label text-white" style="font-weight: 600;">Identifiant</label>
+          <input type="text" class="form-control" formControlName="identifiant" id="username" max="10" required>
+          <div id="emailHelp" class="form-text text-warning" style="font-size: smaller;">Votre identifiant est privé et
+            ne sera pas diffusé.</div>
+          <small *ngIf="formGroup.controls['identifiant'].errors && formGroup.controls['identifiant'].touched"
+            class="text-danger">
+            {{authService.getErrorMessage('Identifiant', formGroup.controls['identifiant'].errors)}}
+          </small>
+        </div>
+        <div class="mb-3">
+          <label for="Password1" class="form-label text-white" style="font-weight: 600;">Mot de passe</label>
+          <input type="password" class="form-control" formControlName="motDePasse" id="Password1">
+          <small *ngIf="formGroup.controls['motDePasse'].errors && formGroup.controls['motDePasse'].touched"
+            class="text-danger">
+            {{authService.getErrorMessage('Mot de passe', formGroup.controls['motDePasse'].errors)}}
+          </small>
+        </div>
+        <!-- <div>
             <span>{{formGroup.value.identifiant}}</span>
             <span>{{formGroup.value.motDePasse}}</span>
 
           </div> -->
-          <div class="passwordProblems">
-              <a href="#" class="text-white">mot de passe oublié ?.</a> 
-              <a href="#" class="text-white">créer un compte ?</a>
-          </div>
-          <button type="submit" class="btn btn-success text-center" >Connexion</button>
-      
+        <div class="passwordProblems">
+          <a routerLink="/login/changer-mot-de-passe" class="text-white">mot de passe oublié ?.</a>
+          <a routerLink="/login/creer-compte" class="text-white">créer un compte ?</a>
+        </div>
+        <button type="submit" class="btn btn-success text-center" [disabled]="!formGroup.valid">Connexion</button>
+
       </form>
-  </div>
+    </div>
   </main>
 </body>
 
 </html>
-

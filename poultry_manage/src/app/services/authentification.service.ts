@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ValidationErrors } from '@angular/forms';
+import { FormGroup, ValidationErrors } from '@angular/forms';
 import { AppUsers } from '../models/users.model';
-import { Observable, Unsubscribable, of, retry, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class AuthentificationService {
 
   constructor() {
     this.users = [
-      { usernamne: 'winner', password: '1234', roles: ["USER"] },
-      { usernamne: 'graciano', password: '12345', roles: ["USER, ADMIN"] },
+      {mail: 'kossiwinnerawouno@gmail.com', usernamne: 'winner', password: '1234', roles: ["USER"] },
+      {mail: 'gracianomathey@gmail.com', usernamne: 'graciano', password: '12345', roles: ["USER, ADMIN"] },
     ]
   }
 
@@ -47,5 +47,13 @@ export class AuthentificationService {
 
   public isAuthentificated() : boolean{
     return this.authenticatedUser != undefined;
+  }
+
+  public addNewUser(newUserForm : FormGroup) : Observable<boolean>{
+    let newUser : AppUsers = {
+      mail: 'kossiwinnerawouno@gmail.com', usernamne : newUserForm.value.username, password : newUserForm.value.password, roles : ['USER']
+    }
+    this.users.push(newUser);
+    return of(true);
   }
 }

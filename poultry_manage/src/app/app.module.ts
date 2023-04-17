@@ -28,6 +28,8 @@ import { DepensesComponent } from './depenses/depenses.component';
 import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 import { NgChartsModule } from 'ng2-charts';
+import { CreerCompteComponent } from './creer-compte/creer-compte.component';
+import { ModifMotDePasseComponent } from './modif-mot-de-passe/modif-mot-de-passe.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { NgChartsModule } from 'ng2-charts';
     EditVenteComponent,
     DepensesComponent,
     NouvDepenseComponent,
-    EditDepenseComponent
+    EditDepenseComponent,
+    CreerCompteComponent,
+    ModifMotDePasseComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { Chart } from 'chart.js';
 })
 export class RapportComponent {
   chart!: Chart;
+  errorMessage! : string;
 
   constructor() { }
 

@@ -24,7 +24,8 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "chart.js": "^4.2.1",
-    
+    "chartjs": "^0.3.24",
+    "cron": "^2.3.0",
     "jquery": "^3.6.4",
     "ng2-charts": "^4.1.1",
     "ngx-bootstrap": "^10.2.0",

@@ -13,13 +13,13 @@ export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
   errorMessage!: string;
 
-  constructor(private authService: AuthentificationService, private fb: FormBuilder, private router: Router) { }
+  constructor(public authService: AuthentificationService, private fb: FormBuilder, private router: Router) { }
 
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      identifiant: this.fb.control(null, [Validators.required]),
-      motDePasse: this.fb.control(null, [Validators.required])
+      identifiant: this.fb.control(null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]),
+      motDePasse: this.fb.control(null, [Validators.required, Validators.minLength(5), Validators.maxLength(20)])
     })
   }
 
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     let password = this.formGroup.value.motDePasse;
 
     this.authService.login(username, password).subscribe({
+
       next: (value) => {
         this.authService.authenticateUser(value).subscribe({
           next: (value) => {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
           }
         })
       }, error: (err) => {
-        this.errorMessage = err;
+        alert(err);
       },
     })
   }

@@ -5,18 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="rapport.component.css">
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">PoultryTracker</a>
+        <div class="navbar-nav ms-auto">
+            <button class="btn btn-outline-danger" routerLink="/login">Déconnexion</button>
+        </div>
+    </div>
+</nav>
+
+<mat-toolbar style="background-color: #1709d2; width:100%">
+    <!-- <mat-icon class="menu" (click)="sidenav.toggle()">menu</mat-icon> -->
+    <nav class="nav">
+        <a class="nav-link active" routerLink="/login/accueil" style="color:white; font-size: medium;">
+            <i class="bi bi-house-door"></i> Accueil
+        </a>
+    </nav>
+    <span style="margin-left: 30%;">RAPPORTS </span>
+</mat-toolbar>
+<ng-template #errors>
+    <span class="text-danger">{{errorMessage}} </span>
+</ng-template>
     <div>
-        <canvas id="myChart"></canvas>
-      </div>
-      
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
+        <canvas id="salesChart"></canvas>
+    </div>
+            
       <script>
-        const ctx = document.getElementById('myChart');
+        const salesChart = document.getElementById('salesChart');
       
-        new Chart(ctx, {
+        new Chart(salesChart, {
           type: 'bar',
           data: {
             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

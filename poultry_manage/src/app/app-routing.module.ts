@@ -16,6 +16,7 @@ import { NouvDepenseComponent } from './nouv-depense/nouv-depense.component';
 import { DepensesComponent } from './depenses/depenses.component';
 import { EditDepenseComponent } from './edit-depense/edit-depense.component';
 import { AuthentificationGuard } from './guards/authentification.guard';
+import { CreerCompteComponent } from './creer-compte/creer-compte.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
           { path: "rapport", component: RapportComponent },
         ]
       },
+      {path : "creer-compte", component : CreerCompteComponent},
     ]
   },
 
