@@ -12,7 +12,7 @@ export class AuthentificationService {
 
   constructor() {
     this.users = [
-      {mail: 'kossiwinnerawouno@gmail.com', usernamne: 'winner', password: '1234', roles: ["USER"] },
+      {mail: 'kossiwinnerawouno@gmail.com', usernamne: 'winner', password: '12345', roles: ["USER"] },
       {mail: 'gracianomathey@gmail.com', usernamne: 'graciano', password: '12345', roles: ["USER, ADMIN"] },
     ]
   }

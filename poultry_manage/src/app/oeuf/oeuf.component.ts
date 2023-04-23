@@ -105,6 +105,7 @@ export class OeufComponent implements OnInit {
     this.oeufService.searchOeuf(motCle).subscribe({
       next: (value) => {
         this.oeufs = value;
+        // this.handlePagesOeufs()
       },
       error: (err) => {
         this.errorMessage = err;
