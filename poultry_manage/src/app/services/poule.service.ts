@@ -140,7 +140,7 @@ export class PouleService {
 
   public stockTotalAnnuel(): Observable<number[]> {
     let datas: number[] = [12].fill(0)
-    for (let i = 0; i < 12; i++) {
+    for (let i = 1; i <= 12; i++) {
       datas.push(this.sum(this.stockParMois(i)))
     }
     return of(datas)

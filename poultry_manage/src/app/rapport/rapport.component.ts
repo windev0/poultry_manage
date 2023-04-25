@@ -48,7 +48,7 @@ export class RapportComponent {
     });
 
     this.pouleChart = new Chart('poules', {
-      type: 'pie',
+      type: 'bar',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'july', 'August', 'September', 'November', 'December'],
         datasets: [{
