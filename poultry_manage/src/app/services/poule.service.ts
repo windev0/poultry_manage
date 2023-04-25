@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, map, of, throwError } from 'rxjs';
 import { PagePoule, Poule } from '../models/poule.model';
 enum Poids {
   moyen = 'moyen',
@@ -22,26 +22,26 @@ export class PouleService {
     this.poules = [
 
       { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 4, date: '12/02/2020', race: 'vert', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 6, date: '12/03/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/02/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
       { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 8, date: '12/05/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
       { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 7, date: '12/06/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/07/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/08/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/04/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/04/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/04/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/04/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
       { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 7, date: '12/06/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/10/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/09/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/11/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/12/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
     ];
   }
 
@@ -122,7 +122,7 @@ export class PouleService {
     return date;
   }
 
-  public stockParMois(mois: number): Observable<number[]> {
+  public stockParMois(mois: number): number[] {
 
     let poulesPourMois: number[] = []
     this.poules.forEach(element => {
@@ -130,15 +130,19 @@ export class PouleService {
         poulesPourMois.push(element.quantite);
       }
     });
-    return of(poulesPourMois);
+    return poulesPourMois;
+  }
+
+  public sum(data: number[]) {
+    let sum: number = data.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    return sum
   }
 
   public stockTotalAnnuel(): Observable<number[]> {
-    let count: number = 0;
-    let datas: number[] = []
-    for(let i=0; i < 12; i++){
-      
+    let datas: number[] = [12].fill(0)
+    for (let i = 0; i < 12; i++) {
+      datas.push(this.sum(this.stockParMois(i)))
     }
-    return of()
+    return of(datas)
   }
 }

@@ -22,7 +22,7 @@ export class RapportComponent {
     const salesData = [100, 200, 300, 400, 500, 400, 500, 400, 500, 300, 400, 500];
     let pouleData! : number[]
    
-    this.pouleService.stockParMois(1).subscribe({
+    this.pouleService.stockTotalAnnuel().subscribe({
       next: (value) => {
         pouleData = value;
       }
