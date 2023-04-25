@@ -16,32 +16,32 @@ enum Poids {
 export class PouleService {
 
   private poules!: Array<Poule>;
-  id : number = 8;
+  id: number = 8;
 
   constructor() {
     this.poules = [
 
-      { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
-      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite:400 },
-      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite:400 },
-      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite:400 },
+      { id: 3, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 4, date: '12/01/2020', race: 'vert', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 6, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
+      { id: 5, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.moyen, quantite: 400 },
+      { id: 7, date: '12/01/2020', race: 'blanc', sexe: 'M', poids: Poids.petite, quantite: 400 },
+      { id: 8, date: '12/01/2020', race: 'noir', sexe: 'M', poids: Poids.grande, quantite: 400 },
     ];
   }
 
@@ -86,7 +86,7 @@ export class PouleService {
   }
 
   public addNewPoule(poule: Poule): Observable<Poule> {
-     this.id++;
+    this.id++;
     poule.id = this.id;
     this.poules.push(poule);
     return of(poule);
@@ -113,5 +113,32 @@ export class PouleService {
   public UpdatePoule(poule: Poule): Observable<Poule> {
     this.poules = this.poules.map(p => (p.id == poule.id) ? poule : p)
     return of(poule);
+  }
+
+  public convertToDate(poule: Poule): Date {
+    const dateString = poule.date;
+    const [day, month, year] = dateString.split('/');
+    const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    return date;
+  }
+
+  public stockParMois(mois: number): Observable<number[]> {
+
+    let poulesPourMois: number[] = []
+    this.poules.forEach(element => {
+      if (this.convertToDate(element).getMonth() == mois) {
+        poulesPourMois.push(element.quantite);
+      }
+    });
+    return of(poulesPourMois);
+  }
+
+  public stockTotalAnnuel(): Observable<number[]> {
+    let count: number = 0;
+    let datas: number[] = []
+    for(let i=0; i < 12; i++){
+      
+    }
+    return of()
   }
 }
